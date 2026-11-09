@@ -1,0 +1,8 @@
+## Interface: [CURRENT INTERFACE NUMBER]
+## Title: MyAddon
+## Notes: A starting point for a World of Warcraft addon.
+## Author: [YOUR NAME]
+## Version: 0.1.0
+## SavedVariables: MyAddonDB
+
+MyAddon.lua
