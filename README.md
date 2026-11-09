@@ -4,8 +4,7 @@ A starting point for a World of Warcraft addon.
 
 ## Before first use
 
-- Set `## Interface:` in `MyAddon.toc` to the interface number of the game version you target.
-- Replace `[YOUR NAME]` in the `.toc` file.
+- `## Interface:` in `MyAddon.toc` is set to 30300. Change it if you target a different game version.
 - Rename the folder, the `.toc`, the `.lua` file and the `SavedVariables` name if you pick a different addon name. The folder name and `.toc` name must match.
 
 ## Install

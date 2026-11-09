@@ -1,7 +1,7 @@
-## Interface: [CURRENT INTERFACE NUMBER]
+## Interface: 30300
 ## Title: MyAddon
 ## Notes: A starting point for a World of Warcraft addon.
-## Author: [YOUR NAME]
+## Author: Incahoots
 ## Version: 0.1.0
 ## SavedVariables: MyAddonDB
 
