@@ -1,0 +1,27 @@
+## Interface: 30300
+## Title: IncahootsCoA
+## Notes: Track your own buffs and cast them with one click. Includes a full spellbook browser. Type /ich or use the minimap icon.
+## Author: Incahoots
+## Version: 3.0.1
+## SavedVariables: IncahootsCoADB
+
+Core\Init.lua
+Core\Database.lua
+
+Spells\SpellBook.lua
+Spells\BuffLearner.lua
+
+Buffs\Rules.lua
+Buffs\Tracker.lua
+Buffs\Display.lua
+
+UI\Widgets.lua
+UI\MainFrame.lua
+UI\Pages\MyBuffs.lua
+UI\Pages\Spellbook.lua
+UI\Pages\ActiveBuffs.lua
+UI\Pages\Display.lua
+UI\Pages\General.lua
+UI\Minimap.lua
+
+Core\Commands.lua

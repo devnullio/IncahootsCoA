@@ -1,16 +1,43 @@
-# MyAddon
+# IncahootsCoA 3.0
 
-A starting point for a World of Warcraft addon.
+Track your own buffs and cast them with one click, with a full spellbook browser.
+For Conquest of Azeroth (WotLK 3.3.5 client). Open with the minimap icon or `/ich`.
 
-## Before first use
+## Folder layout
 
-- `## Interface:` in `MyAddon.toc` is set to 30300. Change it if you target a different game version.
-- Rename the folder, the `.toc`, the `.lua` file and the `SavedVariables` name if you pick a different addon name. The folder name and `.toc` name must match.
+| Path | What it does |
+|---|---|
+| `Core/Init.lua` | Shared helpers: events, internal messages, modules, timer, combat-safe queue |
+| `Core/Database.lua` | Saved variables: account-wide data plus one entry per character |
+| `Core/Commands.lua` | `/ich` commands and key binding labels |
+| `Bindings.xml` | Key bindings: cast next missing buff, open the window |
+| `Spells/SpellBook.lua` | Reads every spell in your spellbook (and your pet's) with its details |
+| `Spells/BuffLearner.lua` | Watches your casts to learn which spells are buffs and what their buffs are called |
+| `Buffs/Rules.lua` | Your tracked buff list, import/export, copy from another character |
+| `Buffs/Tracker.lua` | Works out which tracked buffs are active, running out or missing |
+| `Buffs/Display.lua` | The click-to-cast buttons and the hidden "next buff" keybind button |
+| `UI/Widgets.lua` | Window controls (no libraries needed) |
+| `UI/MainFrame.lua` | The window and the Interface > AddOns entry |
+| `UI/Pages/*.lua` | One file per page |
+| `UI/Minimap.lua` | Minimap icon |
 
-## Install
+## Spellbook API
 
-Copy the `MyAddon` folder into your game's `Interface/AddOns` directory, then restart the game or run `/reload`.
+Other addons and macros can use the scanner:
 
-## Development
+```lua
+local SB = IncahootsCoA.SpellBook
+for _, spell in ipairs(SB:GetAll()) do
+    print(spell.name, spell.rank, spell.id, spell.tab, spell.passive, spell.cost,
+          spell.castTime, spell.range, spell.cooldown, spell.duration, spell.description)
+end
+SB:Get("Spell Name")      -- one spell (any case)
+SB:IsKnown("Spell Name")  -- in your spellbook?
+SB:BuffStatus(spell)      -- "confirmed", "likely" or nil
+SB:Export()               -- every spell as text
+```
 
-Use a Lua error viewer such as BugSack and BugGrabber to catch errors while testing in-game.
+## Saved data
+
+- `IncahootsCoADB.chars["Name - Realm"]`: that character's tracked buffs and button settings.
+- `IncahootsCoADB.global.learned`: which spells are buffs, what their buffs are called and how long they last. Shared by all characters.

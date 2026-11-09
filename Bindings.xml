@@ -1,0 +1,7 @@
+<Bindings>
+	<Binding name="CLICK IncahootsCoANextBuff:LeftButton" header="INCAHOOTSCOA">
+	</Binding>
+	<Binding name="INCAHOOTSCOA_TOGGLE">
+		IncahootsCoA_ToggleWindow()
+	</Binding>
+</Bindings>
